@@ -1,0 +1,11 @@
+FROM mongo:latest
+
+# Копіюємо файли у контейнер
+COPY authors.json /app/authors.json
+COPY quotes.json /app/quotes.json
+
+# Встановлюємо робочий каталог
+WORKDIR /app
+
+# Запускаємо MongoDB
+CMD ["mongod", "--bind_ip", "0.0.0.0"]
